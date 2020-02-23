@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.Pages.CreateGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="page_content" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="banner_grid" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_Image" Margin="10,10,10,10" Source="/Assets/app-logo.png"/>
+            <TextBlock Grid.Column="1" Margin="308,10,282,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline"><Run Text="Create "/><Run Text="game"/><Run Text=" - #Summer2019Project"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Height="19" Width="562" FontSize="14" Grid.Column="1" Text="Just type in game score, game title and select on what playlist you will base your game on!" Margin="286,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="19" Width="424" FontSize="14" Grid.Column="1" Margin="357,100,0,0" Text="If you don't have any playlist yet, go into Library section of the app!"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,17,0,0" Grid.Row="1" Text="Game title:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,78,0,0" Grid.Row="1" Text="Base playlist:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,139,0,0" Grid.Row="1" Text="Title score:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,200,0,0" Grid.Row="1" Text="Artist score:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBox x:Name="gameTitle_textBox" Margin="239,10,10,0" Grid.Row="1" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="32" Background="#FF99AAB5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,375,0,0" Grid.Row="1" Text="Status:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBlock x:Name="status_label" Margin="296,375,10,0" Grid.Row="1" Text="Waiting..." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="32" Foreground="White"/>
+        <Button x:Name="createGame_button" Content="Create Game!" Margin="10,0,10,71" Grid.Row="1" VerticalAlignment="Bottom" Foreground="White" Background="#FF7289DA" FontSize="32" HorizontalAlignment="Stretch" Click="CreateGame_button_Click"/>
+        <Button x:Name="back_button" Content="Back to game selection" Margin="10,484,10,10" Grid.Row="1" VerticalAlignment="Stretch" Foreground="White" Background="#FF99AAB5" FontSize="32" HorizontalAlignment="Stretch" Click="Back_button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,261,0,0" Grid.Row="1" Text="Album score:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,322,0,0" Grid.Row="1" Text="Duration score:" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="White" Foreground="White" TextDecorations="Underline" FontSize="32"/>
+        <TextBox x:Name="titleScore_textBox" Margin="239,132,10,0" Grid.Row="1" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="32" Background="#FF99AAB5"/>
+        <TextBox x:Name="artistScore_textBox" Margin="239,193,10,0" Grid.Row="1" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="32" Background="#FF99AAB5"/>
+        <ComboBox x:Name="basePlaylist_comboBox" Margin="241,71,0,0" Grid.Row="1" Width="1029" Height="56" Background="#FF99AAB5" SelectionChanged="BasePlaylist_comboBox_SelectionChanged"/>
+        <TextBox x:Name="albumScore_textBox" Margin="239,254,10,0" Grid.Row="1" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="32" Background="#FF99AAB5"/>
+        <TextBox x:Name="durationScore_textBox" Margin="240,315,9,0" Grid.Row="1" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" FontSize="32" Background="#FF99AAB5"/>
+
+    </Grid>
+</Page>

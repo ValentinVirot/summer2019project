@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.Pages.PlayGameSelectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="page_content" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="banner_grid" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_Image" Margin="10,10,10,10" Source="/Assets/app-logo.png"/>
+            <TextBlock Grid.Column="1" Margin="300,10,295,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline"><Run Text="Select "/><Run Text="Game - #Summer2019Project"/></TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="22" Width="273" FontSize="14" Grid.Column="1" Text="Now, select the game that you want to play!"/>
+            <Image x:Name="userPP_Image" Grid.Column="1" HorizontalAlignment="Left" Height="75" Margin="300,82,0,0" VerticalAlignment="Top" Width="75" Source="/Assets/Users/unselected-user.png"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="380,82,0,0" Text="Username:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Width="124"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="380,101,0,0" Text="N° of playlists:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Width="125"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="380,138,0,0" Text="N° of games played:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="380,120,0,0" Text="N° of games:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Width="125"/>
+            <TextBlock x:Name="username_label" Grid.Column="1" HorizontalAlignment="Left" Margin="507,82,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+            <TextBlock x:Name="nbrPlaylists_label" Grid.Column="1" HorizontalAlignment="Left" Margin="507,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="Unkno"/><Run Text="w"/><Run Text="n"/></TextBlock>
+            <TextBlock x:Name="nbrGames_label" Grid.Column="1" HorizontalAlignment="Left" Margin="507,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="Unkno"/><Run Text="w"/><Run Text="n"/></TextBlock>
+            <TextBlock x:Name="nbrPlayedGames_label" Grid.Column="1" HorizontalAlignment="Left" Margin="507,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="Unkno"/><Run Text="w"/><Run Text="n"/></TextBlock>
+        </Grid>
+        <Grid x:Name="games_grid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1280"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="games_listView" Grid.Row="1" Background="#FF23272A" Foreground="White" Margin="0,0,0,10" SelectionChanged="Games_listView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="100" Height="100" HorizontalAlignment="Left" Source="/Assets/game-icon.png" />
+                            <TextBlock Text="{Binding game_title}" Foreground="White" FontSize="14" Grid.Column="1" Margin="1,31,0,19"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock x:Name="gamesInformation_label" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" TextDecorations="Underline" FontSize="20" Foreground="White"><Run Text="Game"/><Run Text=" information"/><Run Text=" - "/><Run Text="Selected "/><Run Text="game"/><Run Text=": "/><Run Text="none"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White" Text="What do you want to do?" Grid.Row="2"/>
+            <Button x:Name="playGame_button" Content="Play selected Game!" Margin="10,35,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50" Background="#FF7289DA" Foreground="White" Grid.Row="2" Click="PlayGame_button_Click"/>
+            <Button x:Name="scoreboard_button" Margin="10,90,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50" Content="Scoreboard of selected game" Background="#FF7289DA" Foreground="White" Grid.Row="2" Click="Scoreboard_button_Click_1"/>
+            <Button x:Name="back_button" Content="Back to main menu" Margin="10,145,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="45" Foreground="White" Background="#FF99AAB5" Grid.Row="2" Click="Back_button_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

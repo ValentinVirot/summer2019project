@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.Pages.UserEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="page_content" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="banner_grid" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_Image" Margin="10,10,10,10" Source="/Assets/app-logo.png"/>
+            <TextBlock Grid.Column="1" Margin="327,10,323,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline"><Run Text="Edit "/><Run Text="u"/><Run Text="ser - #Summer2019Project"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="282,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Height="19" Width="550" FontSize="14" Grid.Column="1"><Run Text="In this page, you can"/><Run Text=" edit your user profile, of course you need your password to do that."/></TextBlock>
+        </Grid>
+        <Grid x:Name="user_grid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="640"/>
+                <ColumnDefinition Width="640"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="201,0,197,0" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="32" TextDecorations="Underline" Text="User information"/>
+            <Grid x:Name="user_information_grid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image x:Name="profilePicture_Image" HorizontalAlignment="Center" Height="200" Margin="0,10,0,0" VerticalAlignment="Top" Width="200" Source="/Assets/Users/unselected-user.png"/>
+                <Grid Grid.Row="1" Background="#FF23272A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,17,0,0" Text="User ID:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" Text="Username:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"><Run Text="Profile Picture"/><Run Text=" URL"/><Run Text=":"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Text="Nbr of games played:"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"><Run Text="N"/><Run Text="°"/><Run Text=" of playlists"/><Run Text=" created"/><Run Text=":"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline"><Run Text="N"/><Run Text="°"/><Run Text=" of games created:"/></TextBlock>
+                    <TextBox x:Name="profilePicture_textBox" Margin="160,84,10,0" Text="Unknown" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="playlistsCreated_label" HorizontalAlignment="Left" Margin="160,202,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Width="150"/>
+                    <TextBlock x:Name="gamesCreated_label" HorizontalAlignment="Left" Margin="160,165,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Width="150"/>
+                    <TextBlock x:Name="gamesPlayed_label" HorizontalAlignment="Left" Margin="160,127,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Width="150"/>
+                    <TextBlock x:Name="username_label" HorizontalAlignment="Left" Margin="160,48,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Width="150"/>
+                    <TextBlock x:Name="userID_label" HorizontalAlignment="Left" Margin="160,17,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Width="150"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,17,0,0" Text="Top scores" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Grid.Column="1"/>
+                    <TextBlock Margin="10,57,9,0" Text="This part is under developement, please come back later." TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI" Grid.Column="1"/>
+                </Grid>
+            </Grid>
+            <TextBlock Margin="259,0,256,0" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontSize="32" TextDecorations="Underline" Text="Edit user" Grid.Column="1"/>
+            <Grid x:Name="editUser_grid" Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="55,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="135" Width="550" FontSize="32" Text="Just type here what you want to edit, type in your password, and then, click on Edit!"/>
+                <Grid Grid.Row="1" Background="#FF2C2F33">
+                    <TextBlock Margin="194,10,190,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline" Text="New informations"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Text="New username:"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Text="Password:"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Text="Profile Picture URL:"/>
+                    <Button x:Name="editUser_button" Content="Edit user information" Margin="0,196,0,0" VerticalAlignment="Top" Width="620" HorizontalAlignment="Center" Foreground="White" Background="#FF7289DA" Click="EditUser_button_Click"/>
+                    <Button x:Name="back_button" Content="Back to user selection" Margin="0,238,0,0" VerticalAlignment="Top" Width="620" HorizontalAlignment="Center" Foreground="White" Background="#FF99AAB5" Click="Back_button_Click"/>
+                    <TextBox x:Name="newPP_textBox" HorizontalAlignment="Left" Margin="132,113,0,0" Text="Unknown" TextWrapping="NoWrap" VerticalAlignment="Top" Width="498" Background="#FF99AAB5"/>
+                    <TextBox x:Name="newUser_textBox" HorizontalAlignment="Left" Margin="132,76,0,0" Text="Unknown" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" Background="#FF99AAB5"/>
+                    <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="132,150,0,0" VerticalAlignment="Top" Width="498" Background="#FF99AAB5"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.UserPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="page_content" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="banner_grid" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_Image" Margin="10,10,10,10" Source="/Assets/app-logo.png"/>
+            <TextBlock Grid.Column="1" Margin="347,10,347,0" Text="Users - #Summer2019Project" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="60" Width="680" FontSize="14" Grid.Column="1"><Run Text="In this page, you can see users information, create/edit/delete users (only if you have user's specific password)."/><LineBreak/><Run/><LineBreak/><Run Text="If it's your first time launching this app, go create your account, let's get started!"/></TextBlock>
+        </Grid>
+        <Grid x:Name="users_grid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="640"/>
+                <ColumnDefinition Width="640"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="users_listView" Grid.Row="1" SelectionChanged="Users_listView_SelectionChanged" Background="#FF23272A" Foreground="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="100" Height="100" HorizontalAlignment="Left">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="100" UriSource="{Binding profile_picture}"/>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding nickname}" Foreground="White" 
+                           FontSize="14" Grid.Column="1" Margin="1,31,0,19"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid x:Name="users_info_grid" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="320"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="userInformation_label" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White"><Run Text="User information"/><Run Text=" - Selected User : none"/></TextBlock>
+                <Image x:Name="profilePicture_Image" HorizontalAlignment="Center" Height="200" Margin="0,75,0,0" VerticalAlignment="Top" Width="200" Source="/Assets/Users/unselected-user.png"/>
+                <TextBlock HorizontalAlignment="Left" Margin="11,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White" Text="What do you want to do?"/>
+                <Grid x:Name="users_info_button_grid" Grid.Row="1">
+                    <Button x:Name="createUser_button" Content="Create new user" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50" Background="#FF7289DA" Foreground="White" Click="CreateUser_button_Click"/>
+                    <Button x:Name="editUser_button" Margin="10,65,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50" Content="Edit selected user" Background="#FF7289DA" Foreground="White" Click="EditUser_button_Click"/>
+                    <Button x:Name="deleteUser_button" Content="Delete selected user" Margin="10,120,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="50" Background="#FF7289DA" Foreground="White" Click="DeleteUser_button_Click"/>
+                    <Button x:Name="back_button" Content="Back to main menu" Margin="10,175,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="45" Foreground="White" Background="#FF99AAB5" Click="Back_button_Click"/>
+                </Grid>
+            </Grid>
+            <TextBlock x:Name="userInformation_label1" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White" Text="Existing users"/>
+        </Grid>
+
+    </Grid>
+</Page>

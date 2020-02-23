@@ -1,0 +1,130 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.Pages.ManageGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="page_content" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="banner_grid" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_Image" Margin="10,10,10,10" Source="/Assets/app-logo.png"/>
+            <TextBlock Grid.Column="1" Margin="285,10,261,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32" TextDecorations="Underline"><Run Text="Manage "/><Run Text="Game"/><Run Text=" - #Summer2019Project"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="179,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="26" Width="756" FontSize="14" Grid.Column="1"><Run Text="Here is your "/><Run Text="game"/><Run Text=" management page! You can "/><Run Text="rename your game, see all the tracks that are in it, "/><Run Text="and see the scoreboard"/><Run Text="!"/></TextBlock>
+        </Grid>
+        <Grid x:Name="game_grid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="640"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="tracklist_listView" Grid.Row="1" Background="#FF23272A" Foreground="White" SelectionChanged="Tracklist_listView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="100" Height="100" HorizontalAlignment="Left">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelWidth="100" UriSource="{Binding album.cover_medium}"/>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Text="{Binding title}" Foreground="White" 
+                           FontSize="14" Grid.Column="1" Margin="0,20,0,0" />
+                            <TextBlock Text="{Binding artist.name}" Foreground="White" 
+                           FontSize="14" Grid.Column="2" Margin="0,40,0,0"/>
+                            <TextBlock Text="{Binding album.title}" Foreground="White" 
+                           FontSize="14" Grid.Column="3" Margin="0,60,0,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock x:Name="gameInformation_label" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White"><Run Text="List of tracks"/><Run Text=" - Name of "/><Run Text="the game"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="304,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextDecorations="Underline" FontSize="20" Foreground="White" Grid.Column="1" Text="What do you want to do?"/>
+            <Grid x:Name="main_grid" Grid.Column="1" Grid.Row="1" Margin="0,0,-240,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="490"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="back_button" Content="Back to main menu" Margin="10,450,10,10" HorizontalAlignment="Stretch" Foreground="White" Background="#FF99AAB5" Click="Back_button_Click" VerticalAlignment="Stretch" Grid.Row="1"/>
+                <Grid x:Name="selectedTrack_grid" Grid.Row="1" Margin="10,10,10,330" Background="#FF23272A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="860"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Text="Selected track information" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Margin="3,0,0,0"/>
+                    <Image x:Name="selectedTrack_Image" HorizontalAlignment="Left" Height="115" Margin="10,24,0,0" VerticalAlignment="Top" Width="115" Source="/Assets/default-track.png"/>
+                    <Button x:Name="selectedTrack_readPreview_button" Content="Read preview" Margin="130,108,0,0" VerticalAlignment="Top" Width="250" Background="#FF7289DA" Foreground="White" Click="SelectedTrack_readPreview_button_Click"/>
+                    <Button x:Name="selectedTrack_pausePreview_button" Content="Pause preview" Margin="599,108,0,0" VerticalAlignment="Top" Width="251" Background="#FF7289DA" Foreground="White" Click="SelectedTrack_pausePreview_button_Click"/>
+                    <TextBlock x:Name="selectedTrack_title_label" HorizontalAlignment="Left" Margin="130,24,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="720"/>
+                    <TextBlock x:Name="selectedTrack_artist_label" HorizontalAlignment="Left" Margin="130,48,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="720"/>
+                    <TextBlock x:Name="selectedTrack_album_label" HorizontalAlignment="Left" Margin="130,72,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="720"/>
+                    <Button x:Name="selectedTrack_resumePreview_button" Content="Resume preview" Margin="385,108,0,0" VerticalAlignment="Top" Width="209" Background="#FF7289DA" Foreground="White" Click="SelectedTrack_resumePreview_button_Click"/>
+                </Grid>
+                <Grid x:Name="selectedTrack_grid_Copy" Grid.Row="1" Margin="10,165,10,221" Background="#FF23272A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="430"/>
+                        <ColumnDefinition Width="430"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Margin="3,0,0,0" Height="19" Width="129"><Run Text="Game "/><Run Text="Management"/></TextBlock>
+                    <TextBox x:Name="newName_textBox" HorizontalAlignment="Center" Margin="0,24,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" PlaceholderText="Enter new game name here"/>
+                    <Button x:Name="renameGame_button" Content="Rename this game" Margin="0,62,0,0" VerticalAlignment="Top" Width="410" Background="#FF7289DA" Foreground="White" HorizontalAlignment="Center" Click="RenameGame_button_Click"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Height="19" Width="89" Grid.Column="1"><Run Text="Delete "/><Run Text="game"/></TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="WARNING: deleting this "/><Run Text="game"/><Run Text=" "/><Run Text="is not cancellable!"/></TextBlock>
+                    <PasswordBox x:Name="passwordBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="410"/>
+                    <Button x:Name="deleteGame_button" Content="Delete this game" Margin="0,77,0,0" VerticalAlignment="Top" Width="410" Background="#FF7289DA" Foreground="White" HorizontalAlignment="Center" Grid.Column="1" Height="27" FontSize="10" Click="DeleteGame_button_Click" />
+                </Grid>
+                <Grid x:Name="selectedTrack_grid_Copy1" Grid.Row="1" Margin="10,274,10,45" Background="#FF23272A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="430"/>
+                        <ColumnDefinition Width="430"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Margin="3,0,0,0" Height="19" Width="129" Text="Scoreboard"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" TextDecorations="Underline" Height="19" Width="163" Text="Selected user information" Grid.Column="1"/>
+                    <Image x:Name="ppUser_Image" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" Source="/Assets/Users/unselected-user.png"/>
+                    <TextBlock x:Name="selectedUser_username_label" HorizontalAlignment="Left" Margin="115,55,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="306" Grid.Column="1"/>
+                    <TextBlock x:Name="selectedUser_date_label" HorizontalAlignment="Left" Margin="115,79,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="306" Grid.Column="1"/>
+                    <TextBlock x:Name="selectedUser_score_label" HorizontalAlignment="Left" Margin="115,103,0,0" Text="Select track first!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="306" Grid.Column="1"/>
+                    <ListView x:Name="scoreboard_listView" Grid.Row="1" Margin="0,24,0,0" SelectionChanged="Scoreboard_listView_SelectionChanged">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="50" Height="50" HorizontalAlignment="Left">
+                                        <Image.Source>
+                                            <BitmapImage DecodePixelWidth="50" UriSource="{Binding profile_picture}"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBlock Text="{Binding username}" Foreground="White" 
+                           FontSize="14" Grid.Column="1" Margin="0,0,0,0" />
+                                    <TextBlock Text="{Binding score}" Foreground="White" 
+                           FontSize="14" Grid.Column="2" Margin="0,20,0,0"/>
+                                    <TextBlock Text="{Binding date}" Foreground="White" 
+                           FontSize="14" Grid.Column="3" Margin="0,40,0,0"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

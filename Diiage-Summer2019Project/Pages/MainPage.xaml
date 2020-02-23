@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="Diiage_Summer2019Project.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage_Summer2019Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="main_grid" Background="#FF2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="button_grid" Grid.Row="1" Background="#FF23272A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="640"/>
+                <ColumnDefinition Width="640"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="playGame_grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="playGame_Image" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100" Source="/Assets/Icons/play-game.png"/>
+                <Button x:Name="playGame_button" Content="Play Game!" Grid.Column="1" HorizontalAlignment="Center" Width="520" Click="PlayGame_button_Click" Background="#FF7289DA" Foreground="White" Height="100"/>
+            </Grid>
+            <Grid x:Name="gameSettings_grid" Grid.Column="1" Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="gameSettings_Image" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100" Source="/Assets/Icons/game-settings.png"/>
+                <Button x:Name="gameSettings_button" Content="Manage Games" Grid.Column="1" HorizontalAlignment="Center" Width="521" Click="GameSettings_button_Click" Background="#FF7289DA" Foreground="White" Height="100"/>
+            </Grid>
+            <Grid x:Name="users_grid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="users_Image" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100" Source="/Assets/Icons/users.png"/>
+                <Button x:Name="users_button" Content="Users" Grid.Column="1" Width="520" Click="Users_button_Click" Background="#FF7289DA" Foreground="White" Height="100" HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="library_grid" Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="library_Image" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100" Source="/Assets/Icons/music-library.png"/>
+                <Button x:Name="library_button" Content="Music Library" Grid.Column="1" Width="520" Click="Library_button_Click" Background="#FF7289DA" Foreground="White" Height="100" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="top_grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360"/>
+                <ColumnDefinition Width="920"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="logo_image" Height="300" Margin="0,30,0,0" VerticalAlignment="Top" Source="/Assets/app-logo.png" HorizontalAlignment="Center" Width="300"/>
+            <TextBlock Grid.Column="1" Margin="149,30,144,0" Text="Welcome to the #Summer2019 Project App!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="41,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="106" Width="843" FontSize="14"><Run Text="If you want to play, go create your user account in the dedicated section, and if someone has created a Game, you will be able to play it!"/><LineBreak/><Run/><LineBreak/><Run Text="Anyway, you can go into your music library to create playlists, that you will need to have if you have planned to create a game."/><LineBreak/><Run/><LineBreak/><Run Text="Playlist are private, but games are public, so, have fun with every other player!"/></TextBlock>
+            <Image x:Name="diiage_Image" Grid.Column="1" HorizontalAlignment="Center" Height="120" Margin="0,209,0,0" VerticalAlignment="Top" Width="350" Source="/Assets/diiage-logo.png"/>
+        </Grid>
+    </Grid>
+</Page>
